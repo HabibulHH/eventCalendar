@@ -24,8 +24,3 @@ npm start
 visit:localhost:5000/index.html
 ```
 
-And repeat
-
-```
-until finished
-```
