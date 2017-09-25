@@ -1,4 +1,4 @@
-﻿//ui.calendar --> for caledar control
+﻿//ui.calendar --> for calendar control
 //ui.bootstrap  --> for bootstrap angualr UI modal popup
 var app = angular.module('myapp', ['ui.calendar', 'ui.bootstrap']);
 app.controller('CalenderController', ['$scope', '$http', 'uiCalendarConfig', '$uibModal', function ($scope, $http, uiCalendarConfig, $uibModal) {    
