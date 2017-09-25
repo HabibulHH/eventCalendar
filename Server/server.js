@@ -1,33 +1,13 @@
-var mongoose= require('mongoose');
-mongoose.connect('mongodb://localhost:27017/event_calendar',{ useMongoClient: true});
- 
-var event= mongoose.model('event',{
+var express = require('express');
+var bodyParser=require('body-parser');
+var mongoose=require('./DAL/gateway');
+var {event}=require('./MODEL/event');
+var {eventManager}= require('./MODEL/eventManager');
 
- EventID:{type:String},
-  StartAt:{
-   type:String
-   },
-  EndAt:{
-      type:String
-  },
-  IsFullDay:{
-      type:Boolean
-    },
-  Title:{
-      type:String
-    },
-  Description:{
-      type:String
-    }
+var app= express();
+app.post('/event',(req,res)=>{
 
 });
-
-var newEvent= new event({
-    Title:"Taking bath"
+app.listen(3000,()=>{
+   console.log('Connected');
 });
-
-newEvent.save().then((doc)=>{
-
-},(e)=>{
-    console.log('unable to save at event collection');
-})
