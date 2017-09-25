@@ -1,5 +1,5 @@
- var mongoose=require('mongoose');
-var event= mongoose.model('event',{
+var mongoose=require('mongoose');
+var Event= mongoose.model('Event',{
 
  EventID:{type:String},
   StartAt:{
@@ -19,4 +19,4 @@ var event= mongoose.model('event',{
     }
 
 });
-module.exports={event};
+module.exports={Event};

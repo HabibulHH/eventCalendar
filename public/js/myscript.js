@@ -120,16 +120,12 @@ app.controller('CalenderController', ['$scope', '$http', 'uiCalendarConfig', '$u
             $scope.NewEvent = data.event;
             switch (data.operation) {
                 case 'Save':            //save
-                    $http({
-                        method: 'POST',
-                        url: '/home/SaveEvent',
-                        data : $scope.NewEvent
-                    }).then(function (response) {
-                        if (response.data.status) {
-                            populate();
-                        }
-                    })
-                    break;
+                $http.post('/home/SaveEvent', $scope.NewEvent).success(function(response) {
+                   console.log(response);
+                   populate();
+
+                 })
+                break;
                 case 'Delete':          //delete
                     $http({
                         method: 'POST',
