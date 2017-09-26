@@ -22,7 +22,14 @@ app.listen(port,function(err){
 });
 
 app.get('/home/getevents',function(req,res){
-
+    Event.find().then((events)=>
+    {
+        res.send({events});
+        res.end();
+    },
+    (err)=>{
+        res.status(400).send(e)
+    })
 });
 
 app.post('/home/SaveEvent',function(req,res){
@@ -37,8 +44,12 @@ app.post('/home/SaveEvent',function(req,res){
 
     event.save().then((doc)=>{
         //res.status(200).send(doc)
-          res.json(doc)
-;    },(e)=>{
+        console.log('Data added');
+          res.json(doc);
+          //res.end();
+
+          
+    },(e)=>{
         res.status(400).send(e)
         console.log('can not save')})
 

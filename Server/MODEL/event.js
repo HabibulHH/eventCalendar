@@ -3,10 +3,10 @@ var Event= mongoose.model('Event',{
 
  EventID:{type:String},
   StartAt:{
-   type:String
+   type:Date
    },
   EndAt:{
-      type:String
+      type:Date
   },
   IsFullDay:{
       type:Boolean

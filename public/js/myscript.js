@@ -1,6 +1,6 @@
 ﻿//ui.calendar --> for calendar control
 //ui.bootstrap  --> for bootstrap angualr UI modal popup
-var app = angular.module('myapp', ['ui.calendar', 'ui.bootstrap']);
+var app = angular.module('myapp', ['ui.calendar', 'ui.bootstrap','angularjs-datetime-picker']);
 app.controller('CalenderController', ['$scope', '$http', 'uiCalendarConfig', '$uibModal', function ($scope, $http, uiCalendarConfig, $uibModal) {    
     $scope.SelectedEvent = null;
     var isFirstTime = true;
@@ -31,15 +31,15 @@ app.controller('CalenderController', ['$scope', '$http', 'uiCalendarConfig', '$u
         $http.get('/home/getevents', {
             cache: false,
             params: {}
-        }).then(function (data) {
+        }).success(function (data) {
             $scope.events.slice(0, $scope.events.length);
-            angular.forEach(data.data, function (value) {
+            angular.forEach(data.events, function (value) {
                 $scope.events.push({
                     id : value.EventID,
                     title: value.Title,
                     description: value.Description,
-                    start: new Date(parseInt(value.StartAt.substr(6))),
-                    end: new Date(parseInt(value.EndAt.substr(6))),
+                    start: new Date(value.StartAt.toString()),
+                    end: new Date(value.EndAt.toString()),
                     allDay: value.IsFullDay,
                     stick: true
                 });
