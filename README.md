@@ -1,9 +1,9 @@
-# Event Calendar on Angular1
+# Event Calendar on AngularJS
 
 
 ## Getting Started
 
-Project depends on Node V6 LTE and Express 4, Angular 1 
+Project depends on Node V6 LTE and Express 4, AngularJS , Mongodb,mongoose.
 
 ### Prerequisites
 
