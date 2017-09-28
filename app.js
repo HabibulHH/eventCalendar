@@ -11,8 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const ObjectId = mongoose.mongo.ObjectId;
 
-
-
 app.listen(port,function(err){
 
     console.log('Running the server on port '+port);
@@ -28,6 +26,18 @@ app.get('/home/getevents',function(req,res){
         res.status(400).send(e)
     })
 });
+
+app.post('/home/DeletEvent',function(req,res){
+     var id=new ObjectID(req.body.EventID);
+      Event.findByIdAndRemove(id, (err,tank)=>{
+          if(err){console.log(er)}
+          else{
+              console.log("deleted");
+              res.json(tank);
+          }
+      })
+});
+
 
 app.post('/home/SaveEvent',function(req,res){
 

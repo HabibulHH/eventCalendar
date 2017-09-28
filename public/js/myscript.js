@@ -127,15 +127,11 @@ app.controller('CalenderController', ['$scope', '$http', 'uiCalendarConfig', '$u
                  })
                 break;
                 case 'Delete':          //delete
-                    $http({
-                        method: 'POST',
-                        url: '/home/DeleteEvent',
-                        data: {'eventID' : $scope.NewEvent.EventID }
-                    }).then(function (response) {
-                        if (response.data.status) {
-                            populate();
-                        }
-                    })
+                $http.post('/home/DeletEvent', $scope.NewEvent).success(function(response) {
+                   console.log(response);
+                   populate();
+
+                 })
                     break;
                 default:
                     break;
